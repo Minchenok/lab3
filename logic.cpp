@@ -32,7 +32,7 @@ bool loadData(Data* data){ // Работа с файлом
 }
 
 
-bool calcColm(Data* data, Numbers* numbers){ // Проверка корректности номера колонки
+bool isColNumValid(Data* data, Numbers* numbers){ // Проверка корректности номера колонки
     bool error = false;
     if (data->col > data->columCount || data->col < 2){
         error = true;
