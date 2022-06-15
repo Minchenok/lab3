@@ -11,7 +11,7 @@ struct SendData{
 
 
 bool loadData(Data* data);
-bool calcColm(Data* data, Numbers* numbers);
+bool isColNumValidm(Data* data, Numbers* numbers);
 bool completeNumbers(Data* data, Numbers* numbers);
 
 
