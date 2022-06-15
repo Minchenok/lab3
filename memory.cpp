@@ -8,16 +8,32 @@ char* allocateString(int size){
 
 char** allocateMas(int count, int size){
     char** mas = (char**)calloc(count, sizeof(char*));
+    if (mas == NULL) {
+        return mas;
+    }
     for (int i = 0; i < count; i++){
         mas[i] = allocateString(size);
+        if (mas[i] == NULL) {
+            clearMas(mas, count);
+            mas = NULL;
+            break;
+        }
     }
     return mas;
 }
 
 char*** allocateMatrix(int len, int count, int size){
     char*** matrix = (char***)calloc(len, sizeof(char**));
+    if (matrix == NULL) {
+        return matrix;
+    }
     for (int i = 0; i < len; i++){
         matrix[i]  = allocateMas(count, size);
+        if (matrix[i] == NULL) {
+            clearMatrix(matrix, len, count);
+            matrix = NULL;
+            break;
+        }
     }
     return matrix;
 }
