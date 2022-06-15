@@ -64,6 +64,10 @@ bool checkCorrectCsv(FILE* file, int countColumn){ // Проверка корр�
     rewind(file);
     bool error = false;
     char* line = allocateString(SIZE_LINE);
+    if (line == NULL) {
+        error = true;
+        return error;
+    }
     while (fgets(line, SIZE_LINE, file) != NULL){
         int count = 1;
         for (int i = 0; line[i]; i++){
