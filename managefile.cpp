@@ -90,8 +90,14 @@ bool completeData(FILE* file, Data* data){
      // Выделение памяти
      data->content = allocateMatrix(data->size, data->columCount, SIZE_LINE);
      data->columName = allocateMas(data->columCount, SIZE_LINE);
-     if (data->content == NULL || data->columName == NULL)
-     return false;
-     else
-     return true;
-    }
+     if (data->content == NULL || data->columName == NULL) {
+        if (data->content != NULL) {
+            clearMatrix(data->content);
+        }
+        if (data->columName != NULL) {
+            clearMas(data->columName);
+        }
+        return false;
+     } else {
+        return true;
+     }
