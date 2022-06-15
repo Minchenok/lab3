@@ -8,7 +8,7 @@ bool doOperation(Operation operation, Data* data, Numbers* numbers){ // Един
             error = loadData(data);
             break;
         case CALC:
-            error = calcColm(data, numbers);
+            error = isColNumValidm(data, numbers);
             break;
     }
     return error;
