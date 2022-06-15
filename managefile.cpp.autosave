@@ -96,7 +96,7 @@ bool completeData(FILE* file, Data* data){
             clearMatrix(data->content);
         }
         if (data->columName != NULL) {
-            clearMas(getCountColumn, data->columName);
+            clearMas(data->columName);
         }
         return false;
      } else {

@@ -45,7 +45,7 @@ void MainWindow::Calculate(){ // Обработка нажатия на "calc"
         int numCol = colunm.toInt() - 1;
         Numbers numbers;
         data.col = numCol;
-        if (!perationDO(CALC, &data, &numbers)){
+        if (!doOperation(CALC, &data, &numbers)){
             ui->textMax->setText(QString::number(numbers.max));
             ui->textMin->setText(QString::number(numbers.min));
             ui->textMediana->setText(QString::number(numbers.mediana));
@@ -86,7 +86,7 @@ void MainWindow::loadData(){ // Обработка нажатия на "загр
     else {
         data.region = QstringToCharArray(region);
         Numbers numbers;
-        if (!perationDO(LOAD_DATA, &data, &numbers))
+        if (!doOperation(LOAD_DATA, &data, &numbers))
             showData(&data);
         else {
             showErrorWindow("Не возможно открыть файл");
