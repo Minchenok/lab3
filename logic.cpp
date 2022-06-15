@@ -48,6 +48,9 @@ bool completeNumbers(Data* data, Numbers* numbers){ // Заполнение ст
     double* masNumber = (double*)calloc(data->size, sizeof(double));
 
     if (masNumber == NULL || !data->size){
+        if (masNumber != NULL) {
+            free(masNumber);
+        }
         return true;
     }
     for (int i = 0; i < data->size; i++){
